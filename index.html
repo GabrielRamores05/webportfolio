@@ -3,554 +3,361 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Gabriel Ramores — UI/UX Designer portfolio. Specializing in responsive design, CMS development, and API integrations.">
+  <meta name="description" content="Gabriel B. Ramores – Full Stack Web Developer & UI/UX Designer. Specialist in conversion-focused funnel systems and scalable MERN applications.">
+  <meta name="keywords" content="Full Stack Web Developer, UI/UX Designer, Gabriel B. Ramores, CORA, MERN, Funnel Specialist, Figma">
+  <meta name="author" content="Gabriel B. Ramores">
+  <title>Gabriel B. Ramores | Full Stack Web Developer</title>
+
+  <!-- Google Fonts: Inter (Simplest Premium Font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Remixicon Icons -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="assets/CSS/style.css">
-  <title>Gabriel Ramores | UI/UX Designer Portfolio</title>
 </head>
 <body>
-<!-- ============ HEADER ============ -->
-<header class="header" id="header">
-  <nav class="nav container">
-    <a href="#home" class="nav-logo">G.R.</a>
+  <!-- ============ HEADER - RESPONSIVE NAVBAR ============ -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#landing" class="nav-logo">G.R.</a>
 
-    <div class="nav-menu" id="nav-menu">
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a href="#home" class="nav-link active-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="#about" class="nav-link">About</a>
-        </li>
-        <li class="nav-item">
-          <a href="#services" class="nav-link">Services</a>
-        </li>
-        <li class="nav-item">
-          <a href="#skills" class="nav-link">Skills</a>
-        </li>
-        <li class="nav-item">
-          <a href="#portfolio" class="nav-link">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a href="#contact" class="nav-link">Contact</a>
-        </li>
-      </ul>
-      <i class="ri-close-line nav-close" id="nav-close"></i>
-    </div>
-
-    <div class="nav-btns">
-      <i class="ri-sun-line change-theme" id="theme-toggle" role="button" aria-label="Toggle theme" tabindex="0"></i>
-      <div class="nav-toggle">
-        <i class="ri-menu-line" id="nav-toggle" role="button" aria-label="Open navigation menu" tabindex="0"></i>
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#landing" class="nav-link active-link">Home</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">projects</a></li>
+          <li class="nav-item"><a href="#tools" class="nav-link">tools</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">contacts</a></li>
+        </ul>
+        <i class="ri-close-line nav-close" id="nav-close"></i>
       </div>
-    </div>
-  </nav>
-</header>
 
-<!-- ============ MAIN ============ -->
-<main class="main">
-
-<!-- ============ HOME ============ -->
-<section class="home section" id="home">
-  <div class="home-container container grid">
-    <div class="home-data">
-      <h1 class="home-title">Gabriel Ramores</h1>
-      <h3 class="home-job">UI/UX Designer & Frontend Dev</h3>
-      <p class="home-description">Skilled in Figma mockups and wireframing, creating clean, structured, conversion-focused interfaces. I design user-friendly, lead-driven websites with strong visual hierarchy.</p>
-      <a href="assets/pdf/05_GabrielRamores_UI_UX_Resume_i_042126.pdf" download class="button">Download CV</a>
-    </div>
-
-    <div class="home-img-wrapper">
-      <img src="assets/images/profile1.png" alt="Gabriel Ramores profile photo" class="home-img">
-    </div>
-
-    <div class="home-social">
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="home-social-link" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="home-social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-      <a href="https://www.github.com/" target="_blank" rel="noopener noreferrer" class="home-social-link" aria-label="GitHub"><i class="ri-github-fill"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ THEME SANDBOX ============ -->
-<section class="sandbox section" id="sandbox" style="padding-top: 0;">
-  <div class="sandbox-container container grid">
-    <div class="sandbox-data">
-      <h2 class="sandbox-title" style="font-size: var(--h2-font-size); margin-bottom: var(--sp-2);">Make It Yours.</h2>
-      <p class="sandbox-description">A good engineer doesn't just write code—they build systems. Drag the slider to interact with my CSS variables in real-time and see the entire website adapt instantly.</p>
-    </div>
-    
-    <div class="sandbox-window">
-      <div class="sandbox-header">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
-        <span class="sandbox-filename">style.css</span>
-      </div>
-      <div class="sandbox-code">
-<pre><code><span class="syntax-selector">:root</span> {
-  <span class="syntax-property">--first-hue</span>: <span class="syntax-value" id="hue-value">155</span>; <span class="syntax-comment">/* Drag to change! */</span>
-}</code></pre>
-        <div class="sandbox-control">
-          <input type="range" min="0" max="360" value="155" class="sandbox-slider" id="theme-slider" aria-label="Theme color slider">
+      <div class="nav-btns">
+        <i class="ri-sun-line change-theme" id="theme-toggle" role="button" aria-label="Toggle theme" tabindex="0"></i>
+        <div class="nav-toggle">
+          <i class="ri-menu-line" id="nav-toggle" role="button" aria-label="Open navigation menu" tabindex="0"></i>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </nav>
+  </header>
 
-<!-- ============ VIDEO SHOWCASE ============ -->
-<section class="video section" id="video">
-  <div class="video-container container grid">
-    <div class="video-data">
-      <h2 class="section-title" style="text-align: left; margin-bottom: var(--sp-4);">Featured Work</h2>
-      <p class="video-description">Take a brief look at some of the interactive experiences and digital products I've built. This reel highlights my focus on fluid animations, accessible design, and pixel-perfect development.</p>
-      <a href="#portfolio" class="button">View Portfolio</a>
-    </div>
-    <div class="video-wrapper">
-      <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" controls preload="metadata" poster="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&q=80&w=1200" class="video-player"></video>
-    </div>
-  </div>
-</section>
+  <!-- ============ MAIN ============ -->
+  <main class="main">
 
-<!-- ============ ABOUT ============ -->
-<section class="about section" id="about">
-  <div class="about-container container grid">
-    <div class="about-experience">
-      <span class="about-no"><count-up>2</count-up></span>
-      <h3 class="about-title">Years Experience</h3>
-    </div>
+      <!-- ============ LANDING (HERO) ============ -->
+      <section class="landing section" id="landing">
+        <div class="landing-container">
+          <div class="landing-content">
+            <h2 class="landing-label">Full Stack Web Developer</h2>
+            <h1 class="landing-title">Gabriel B. Ramores</h1>
+            <p class="landing-headline">building for your dreams</p>
 
-    <div>
-      <h2 class="about-description">With <span class="text-gradient">Over two years of designing</span>, I specialize in <span class="text-gradient">transforming ideas and concepts</span> into engaging, <span class="text-gradient">interactive digital experiences</span> for clients worldwide.</h2>
-      <a href="#portfolio" class="button">My Works</a>
-    </div>
-
-    <ul class="about-data grid">
-      <li class="about-item">
-        <h3 class="about-item-no"><count-up>10</count-up></h3>
-        <p class="about-details">Projects</p>
-      </li>
-      <li class="about-item">
-        <h3 class="about-item-no"><count-up>5</count-up></h3>
-        <p class="about-details">Clients</p>
-      </li>
-      <li class="about-item">
-        <h3 class="about-item-no"><count-up>10</count-up></h3>
-        <p class="about-details">Job done successfully</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============ DESIGN PROCESS ============ -->
-<section class="story section" id="story">
-  <h2 class="section-title">My Design Process</h2>
-  <div class="story-container container grid">
-    <div class="story-item">
-      <div class="story-icon-wrapper"><i class="ri-search-line story-icon"></i></div>
-      <h3 class="story-title">1. Research</h3>
-      <p class="story-description">Understanding the user needs, business goals, and defining the core problem.</p>
-    </div>
-    <div class="story-item">
-      <div class="story-icon-wrapper"><i class="ri-layout-line story-icon"></i></div>
-      <h3 class="story-title">2. Wireframing</h3>
-      <p class="story-description">Creating low-fidelity wireframes and mapping out the user journey and architecture.</p>
-    </div>
-    <div class="story-item">
-      <div class="story-icon-wrapper"><i class="ri-brush-line story-icon"></i></div>
-      <h3 class="story-title">3. Visual Design</h3>
-      <p class="story-description">Designing high-fidelity, pixel-perfect UI with a focus on accessibility and aesthetics.</p>
-    </div>
-    <div class="story-item">
-      <div class="story-icon-wrapper"><i class="ri-code-s-slash-line story-icon"></i></div>
-      <h3 class="story-title">4. Development</h3>
-      <p class="story-description">Translating designs into responsive, interactive, and performant frontend code.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section class="services section" id="services">
-  <h2 class="section-title">My Services</h2>
-
-  <div class="services-container container grid">
-    <article class="services-card">
-      <span class="services-no">01</span>
-      <h3 class="services-title">User Interface Design</h3>
-      <p class="services-description">Crafting intuitive, pixel-perfect interfaces in Figma that delight users and drive business metrics.</p>
-    </article>
-
-    <article class="services-card">
-      <span class="services-no">02</span>
-      <h3 class="services-title">Frontend Development</h3>
-      <p class="services-description">Building fast, accessible, and responsive web applications using modern frameworks like React and Tailwind CSS.</p>
-    </article>
-
-    <article class="services-card">
-      <span class="services-no">03</span>
-      <h3 class="services-title">Design Systems</h3>
-      <p class="services-description">Creating scalable, reusable component libraries that bridge the gap between design and engineering teams.</p>
-    </article>
-  </div>
-</section>
-
-<!-- ============ SKILLS ============ -->
-<section class="skills section" id="skills">
-  <h2 class="section-title">My Skills</h2>
-
-  <div class="skills-container container grid">
-    <div class="skills-group">
-      <h3 class="skills-title">Frontend Developer</h3>
-      <div class="skills-items grid">
-        <div class="skills-data">
-          <div class="skills-blob">
-            <img src="assets/images/html-logo.svg" alt="HTML logo" class="skills-img">
-          </div>
-          <h3 class="skills-name">HTML</h3>
-          <span class="skills-level">Advanced</span>
-        </div>
-
-        <div class="skills-data">
-          <div class="skills-blob">
-            <img src="assets/images/css-logo.svg" alt="CSS logo" class="skills-img">
-          </div>
-          <h3 class="skills-name">CSS</h3>
-          <span class="skills-level">Advanced</span>
-        </div>
-
-        <div class="skills-data">
-          <div class="skills-blob">
-            <img src="assets/images/javascript-logo.svg" alt="JavaScript logo" class="skills-img">
-          </div>
-          <h3 class="skills-name">JavaScript</h3>
-          <span class="skills-level">Intermediate</span>
-        </div>
-
-        <div class="skills-data">
-          <div class="skills-blob">
-            <i class="ri-layout-masonry-line skills-icon-font"></i>
-          </div>
-          <h3 class="skills-name">Responsive Design</h3>
-          <span class="skills-level">Advanced</span>
-        </div>
-
-        <div class="skills-data">
-          <div class="skills-blob">
-            <i class="ri-robot-line skills-icon-font"></i>
-          </div>
-          <h3 class="skills-name">AI Tools</h3>
-          <span class="skills-level">Practical App</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="skills-group">
-      <h3 class="skills-title">Web Designer</h3>
-      <div class="skills-items grid">
-        <div class="skills-data">
-          <div class="skills-blob">
-            <img src="assets/images/figma-logo.svg" alt="Figma logo" class="skills-img">
-          </div>
-          <h3 class="skills-name">Figma</h3>
-          <span class="skills-level">Advanced</span>
-        </div>
-
-        <div class="skills-data">
-          <div class="skills-blob">
-            <i class="ri-layout-line skills-icon-font"></i>
-          </div>
-          <h3 class="skills-name">Wireframing</h3>
-          <span class="skills-level">Advanced</span>
-        </div>
-
-        <div class="skills-data">
-          <div class="skills-blob">
-            <i class="ri-test-tube-line skills-icon-font"></i>
-          </div>
-          <h3 class="skills-name">Usability Testing</h3>
-          <span class="skills-level">Intermediate</span>
-        </div>
-
-        <div class="skills-data">
-          <div class="skills-blob">
-            <i class="ri-palette-line skills-icon-font"></i>
-          </div>
-          <h3 class="skills-name">Graphic Design</h3>
-          <span class="skills-level">Advanced</span>
-        </div>
-
-        <div class="skills-data">
-          <div class="skills-blob">
-            <img src="assets/images/adobe-photoshop-logo.svg" alt="Adobe Photoshop logo" class="skills-img">
-          </div>
-          <h3 class="skills-name">Photoshop</h3>
-          <span class="skills-level">Intermediate</span>
-        </div>
-        
-        <div class="skills-data">
-          <div class="skills-blob">
-            <i class="ri-pen-nib-line skills-icon-font"></i>
-          </div>
-          <h3 class="skills-name">Illustrator</h3>
-          <span class="skills-level">Intermediate</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ RESUME ============ -->
-<section class="resume-section" id="resume">
-  <h2 class="section-title">My Journey</h2>
-
-  <div class="resume-container grid">
-    <div class="resume-item grid">
-      <div class="resume-left">
-        <i class="ri-briefcase-line resume-icon"></i>
-        <h3 class="resume-title">Marketing Manager</h3>
-        <span class="resume-duration">Jan 2026 - Mar 2026</span>
-      </div>
-      <div class="resume-right">
-        <h3 class="resume-title">Edgepoint Solutions, INC.</h3>
-        <p class="resume-description">Built funnel system generating 300+ qualified leads in 1 month, boosting sales pipeline. Analyzed market data to refine SaaS content strategy, driving 500% increase in engagement.</p>
-      </div>
-    </div>
-
-    <div class="resume-item grid">
-      <div class="resume-right">
-        <i class="ri-pen-nib-line resume-icon"></i>
-        <h3 class="resume-title">Personal Projects</h3>
-        <span class="resume-duration">Jan 2024 - Present</span>
-      </div>
-      <div class="resume-left">
-        <h3 class="resume-title">UI/UX Designer</h3>
-        <p class="resume-description">Skilled in Figma mockups and wireframing, creating clean, structured, conversion-focused interfaces. Focused on minimal, high-conversion layouts.</p>
-      </div>
-    </div>
-
-    <div class="resume-item grid">
-      <div class="resume-left">
-        <i class="ri-graduation-cap-fill resume-icon"></i>
-        <h3 class="resume-title">University of Nueva Caceres</h3>
-        <span class="resume-duration">Tertiary</span>
-      </div>
-      <div class="resume-right">
-        <h3 class="resume-title">BS Computer Science</h3>
-        <p class="resume-description">Currently pursuing my degree with a focus on human-computer interaction and modern web architecture.</p>
-      </div>
-    </div>
-
-    <div class="resume-item grid">
-      <div class="resume-right">
-        <i class="ri-code-box-line resume-icon"></i>
-        <h3 class="resume-title">Zuitt Coding Bootcamp</h3>
-        <span class="resume-duration">2026</span>
-      </div>
-      <div class="resume-left">
-        <h3 class="resume-title">Full Stack Developer</h3>
-        <p class="resume-description">Intensive training in frontend and backend technologies, focusing on creating fully functional, full-stack applications.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PORTFOLIO ============ -->
-<section class="work section" id="portfolio">
-  <h2 class="section-title">Portfolio</h2>
-
-  <div class="container">
-    <ul class="work-list">
-      <li class="work-item active-work" data-filter="all">All</li>
-      <li class="work-item" data-filter=".photography">Photography</li>
-      <li class="work-item" data-filter=".development">Development</li>
-      <li class="work-item" data-filter=".branding">Branding</li>
-    </ul>
-
-    <div class="work-container grid">
-      <div class="mix branding">
-        <article class="work-card">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="FinTech Dashboard project" class="work-img">
-          <h4 class="work-category">UI/UX & Frontend</h4>
-          <h3 class="work-title">FinTech Analytics Dashboard</h3>
-          <p class="work-description"><strong>Problem:</strong> Complex data was overwhelming users.<br><strong>Solution:</strong> Redesigned the data visualization architecture into modular widgets.<br><strong>Impact:</strong> Increased daily active usage by 40%.</p>
-          <a href="#" class="work-link">
-            View Case Study <i class="ri-arrow-right-line work-icon"></i>
-          </a>
-        </article>
-      </div>
-
-      <div class="mix development">
-        <article class="work-card">
-          <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=800" alt="SaaS Web App project" class="work-img">
-          <h4 class="work-category">Development</h4>
-          <h3 class="work-title">React Component Library</h3>
-          <p class="work-description"><strong>Problem:</strong> Inconsistent UI across company products.<br><strong>Solution:</strong> Built a comprehensive, accessible React UI kit.<br><strong>Impact:</strong> Reduced developer frontend implementation time by 60%.</p>
-          <a href="#" class="work-link">
-            View Code <i class="ri-arrow-right-line work-icon"></i>
-          </a>
-        </article>
-      </div>
-
-      <div class="mix photography">
-        <article class="work-card">
-          <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&q=80&w=800" alt="E-Commerce Mobile App project" class="work-img">
-          <h4 class="work-category">Mobile Design</h4>
-          <h3 class="work-title">E-Commerce Checkout Flow</h3>
-          <p class="work-description"><strong>Problem:</strong> High cart abandonment rate on mobile.<br><strong>Solution:</strong> Designed a seamless, one-page guest checkout experience.<br><strong>Impact:</strong> Boosted mobile conversion rates by 18%.</p>
-          <a href="#" class="work-link">
-            View Case Study <i class="ri-arrow-right-line work-icon"></i>
-          </a>
-        </article>
-      </div>
-
-      <div class="mix photography">
-        <article class="work-card">
-          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800" alt="Corporate Website project" class="work-img">
-          <h4 class="work-category">Web Design</h4>
-          <h3 class="work-title">B2B Corporate Website</h3>
-          <p class="work-description"><strong>Problem:</strong> Outdated brand identity hurting enterprise sales.<br><strong>Solution:</strong> Delivered a premium, dark-mode focused landing page.<br><strong>Impact:</strong> Generated 12 high-ticket leads in the first month.</p>
-          <a href="#" class="work-link">
-            View Live Site <i class="ri-arrow-right-line work-icon"></i>
-          </a>
-        </article>
-      </div>
-
-      <div class="mix development">
-        <article class="work-card">
-          <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&q=80&w=800" alt="Design System project" class="work-img">
-          <h4 class="work-category">Design Systems</h4>
-          <h3 class="work-title">Global Brand Guidelines</h3>
-          <p class="work-description"><strong>Problem:</strong> No source of truth for marketing assets.<br><strong>Solution:</strong> Architected a centralized Figma design system with design tokens.<br><strong>Impact:</strong> Unified the brand across 4 global regional teams.</p>
-          <a href="#" class="work-link">
-            View Figma File <i class="ri-arrow-right-line work-icon"></i>
-          </a>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TESTIMONIALS ============ -->
-<section class="testimonials section" id="testimonials">
-  <h2 class="section-title">Client Testimonials</h2>
-  <div class="testimonials-container container grid">
-    <article class="testimonial-card">
-      <p class="testimonial-quote">"Gabriel completely transformed our messy dashboard into a beautiful, intuitive experience. Our users love it."</p>
-      <div class="testimonial-author">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=150&h=150" alt="John Doe" class="testimonial-img">
-        <div>
-          <h4 class="testimonial-name">John Doe</h4>
-          <span class="testimonial-role">CEO, TechStartup</span>
-        </div>
-      </div>
-    </article>
-    
-    <article class="testimonial-card">
-      <p class="testimonial-quote">"A rare talent who understands both deep technical constraints and premium visual design. Highly recommended."</p>
-      <div class="testimonial-author">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150&h=150" alt="Jane Smith" class="testimonial-img">
-        <div>
-          <h4 class="testimonial-name">Jane Smith</h4>
-          <span class="testimonial-role">Product Manager</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="testimonial-card">
-      <p class="testimonial-quote">"Delivered our project ahead of schedule with flawless responsive layouts. The code quality was excellent."</p>
-      <div class="testimonial-author">
-        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=150&h=150" alt="David Chen" class="testimonial-img">
-        <div>
-          <h4 class="testimonial-name">David Chen</h4>
-          <span class="testimonial-role">Engineering Lead</span>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============ CONTACT ============ -->
-<section class="contact section" id="contact">
-  <div class="contact-container container grid">
-    <div class="contact-group">
-      <h2 class="section-title contact-section-title">Open for Full-Time Roles & Freelance. <br>Let's Build Something Great.</h2>
-
-      <div class="contact-data grid">
-        <div class="contact-item">
-          <span class="contact-icon"><i class="ri-mail-line"></i></span>
-          <div>
-            <h3 class="contact-title">E-mail</h3>
-            <p class="contact-description">gabrielramores05@gmail.com</p>
+            <div class="landing-buttons">
+              <a href="#projects" class="button">View Work</a>
+              <a href="#contact" class="button button-ghost">Contact Me</a>
+            </div>
+            
+            <div class="landing-slider">
+              <p class="landing-text">adjust to your favorite premium color</p>
+              <input type="range" min="0" max="360" value="210" class="hue-slider" id="hue-slider" aria-label="Theme color slider">
+              <span class="hue-value" id="hue-value">Electric Sapphire</span>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="contact-item">
-          <span class="contact-icon"><i class="ri-phone-line"></i></span>
-          <div>
-            <h3 class="contact-title">Phone</h3>
-            <p class="contact-description">09073469047</p>
-          </div>
+    <!-- ============ PROJECTS ============ -->
+    <section class="projects section" id="projects">
+      <div class="projects-container container">
+        <h2 class="section-title">Case Studies & Projects</h2>
+        <p class="section-subtitle">Data-driven systems that generate real-world revenue and engagement</p>
+
+        <div class="projects-grid grid">
+          <!-- Featured: CORA -->
+          <article class="project-card featured">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project_leads.png" alt="CORA Lead-Gen Funnel System" class="project-image">
+            </div>
+            <h3 class="project-title">CORA: Full-Cycle System Development</h3>
+            <p class="project-description">Independently architected and deployed the entire CORA ecosystem in a rapid **48-hour turnaround**. Managed the full-cycle development using **Stitch wireframing** and **Figma prototyping** for seamless client collaboration. Integrated **Meta Pixel** and **Custom Bot Automation** to transition users from social content to interactive demos. **Generated 10 qualified leads in 3 days** and automated a system saving **291+ hours of manual labor monthly**.</p>
+            <div class="project-links">
+              <a href="https://cora-landing-page-liart.vercel.app/" target="_blank" class="button button-small">View Live System</a>
+            </div>
+          </article>
+
+          <!-- API Projects -->
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project_api.png" alt="E-commerce API Documentation" class="project-image">
+            </div>
+            <h3 class="project-title">E-commerce API Documentation</h3>
+            <p class="project-description">Dynamic E-commerce Workflow Management featuring dynamic routes for order processing, real-time inventory updates and secure user authentication. Publicly documented using Postman.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project_api.png" alt="Course Booking API Documentation" class="project-image">
+            </div>
+            <h3 class="project-title">Course Booking API Documentation</h3>
+            <p class="project-description">RESTful API for managing course enrollments, featuring user registration, authentication, and retrieval of details. Publicly documented using Postman.</p>
+          </article>
+
+          <!-- App Projects -->
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project_mern.png" alt="Course Booking App" class="project-image">
+            </div>
+            <h3 class="project-title">Course Booking App</h3>
+            <p class="project-description">A MERN-stack enrolment system featuring user registration, profile management, and dynamic course status (active/archive). Seamless enrollment UX.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project_ecommerce.png" alt="E-commerce App" class="project-image">
+            </div>
+            <h3 class="project-title">E-commerce App</h3>
+            <p class="project-description">MERN Platform featuring dynamic product catalogs with filtering, real-time search, secure checkout, and a comprehensive admin analytics dashboard.</p>
+          </article>
+
+          <!-- Mockups / Prototypes -->
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project_airline.png" alt="Airline Booking System Mockup" class="project-image">
+            </div>
+            <h3 class="project-title">Airline Booking System Mockup</h3>
+            <p class="project-description">Conceptual UI design for flight search, seat selection and booking confirmation, focusing on workflow efficiency and user satisfaction.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project_airline.png" alt="Airline Booking System Prototype" class="project-image">
+            </div>
+            <h3 class="project-title">Airline Booking System Prototype</h3>
+            <p class="project-description">Interactive prototype simulating end-to-end airline booking functionalities, including reservation, payment processing, and real-time management.</p>
+          </article>
+
+          <!-- Capstones -->
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project_booking.png" alt="Short Courses Capstone" class="project-image">
+            </div>
+            <h3 class="project-title">Short Courses Capstone</h3>
+            <p class="project-description">Placeholder for your short courses capstone project. Optimized for conversion and minimalist UI design principles.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project_mern.png" alt="Short Courses Capstone" class="project-image">
+            </div>
+            <h3 class="project-title">Short Courses Capstone</h3>
+            <p class="project-description">Placeholder for your short courses capstone project. Focused on clean layouts and accessibility.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project_api.png" alt="Short Courses Capstone" class="project-image">
+            </div>
+            <h3 class="project-title">Short Courses Capstone</h3>
+            <p class="project-description">Placeholder for your short courses capstone project. Featuring robust backend architecture.</p>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <div class="contact-item">
-          <span class="contact-icon"><i class="ri-map-pin-line"></i></span>
-          <div>
-            <h3 class="contact-title">Location</h3>
-            <p class="contact-description">Philippines, Region V</p>
+    <!-- ============ TOOLS ============ -->
+    <section class="tools section" id="tools">
+      <div class="tools-container container">
+        <h2 class="section-title">Technical Stack</h2>
+        <p class="section-subtitle">Mastering the tools that bridge the gap between design and development</p>
+
+        <div class="tools-grid">
+          <!-- Front End Group -->
+          <div class="tools-group">
+            <h3 class="tools-category">Front End & UX</h3>
+            <div class="tools-icons grid">
+              <div class="tool-item">
+                <i class="ri-html5-line tool-icon"></i>
+                <span class="tool-name">HTML / CSS</span>
+              </div>
+              <div class="tool-item">
+                <i class="ri-bootstrap-line tool-icon"></i>
+                <span class="tool-name">Bootstrap</span>
+              </div>
+              <div class="tool-item">
+                <i class="ri-javascript-line tool-icon"></i>
+                <span class="tool-name">Modern JS</span>
+              </div>
+              <div class="tool-item">
+                <i class="ri-responsive-line tool-icon"></i>
+                <span class="tool-name">Responsive Design</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- MERN Group -->
+          <div class="tools-group">
+            <h3 class="tools-category">Full Stack MERN</h3>
+            <div class="tools-icons grid">
+              <div class="tool-item">
+                <i class="ri-database-2-line tool-icon"></i>
+                <span class="tool-name">mongoDB</span>
+              </div>
+              <div class="tool-item">
+                <i class="ri-server-line tool-icon"></i>
+                <span class="tool-name">Express</span>
+              </div>
+              <div class="tool-item">
+                <i class="ri-reactjs-line tool-icon"></i>
+                <span class="tool-name">React</span>
+              </div>
+              <div class="tool-item">
+                <i class="ri-nodejs-line tool-icon"></i>
+                <span class="tool-name">Node</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Strategy Group -->
+          <div class="tools-group">
+            <h3 class="tools-category">Design & Automation</h3>
+            <div class="tools-icons grid">
+              <div class="tool-item">
+                <i class="ri-edit-line tool-icon"></i>
+                <span class="tool-name">Figma / Adobe / Stitch</span>
+              </div>
+              <div class="tool-item">
+                <i class="ri-robot-line tool-icon"></i>
+                <span class="tool-name">Bot & AI Automation</span>
+              </div>
+              <div class="tool-item">
+                <i class="ri-send-plane-line tool-icon"></i>
+                <span class="tool-name">Meta Pixel / EmailJS</span>
+              </div>
+              <div class="tool-item">
+                <i class="ri-user-search-line tool-icon"></i>
+                <span class="tool-name">Usability Testing</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ============ SUCCESS OUTCOMES (EXPERIENCE) ============ -->
+    <section class="experience section" id="experience">
+      <div class="experience-container container">
+        <h2 class="section-title">Success Outcomes</h2>
+        <p class="section-subtitle">Real-world impact delivered through strategic marketing and design</p>
+
+        <div class="experience-content grid">
+          <div class="experience-item">
+            <h3 class="experience-role">Marketing Manager | Funnel Specialist</h3>
+            <p class="experience-company">Edgepoint Solutions, INC. (2026)</p>
+            <ul class="experience-achievements">
+              <li>Architected a funnel system producing **300+ qualified leads** in a single month, accelerating revenue opportunities by 400%.</li>
+              <li>Refined SaaS content strategy using market data, driving a **500% increase in inbound engagement**.</li>
+            </ul>
+          </div>
+          
+          <div class="experience-item">
+            <h3 class="experience-role">Freelance Funnel Consultant</h3>
+            <p class="experience-company">CORA | Cooperative Operations and Records Application</p>
+            <ul class="experience-achievements">
+              <li>Integrated Meta Pixel and bot automation to transition users from social content to interactive demos.</li>
+              <li>Generated **10 qualified leads in 3 days** for a new demo campaign (baseline was 0).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="education section" id="education">
+      <div class="education-container container">
+        <h2 class="section-title">Knowledge Foundations</h2>
+        <p class="section-subtitle">Academic excellence and specialized technical certifications</p>
+
+        <div class="education-content grid">
+          <div class="education-item">
+            <h3 class="education-degree">Full Stack Developer Certification</h3>
+            <p class="education-institution">Zuitt Coding Bootcamp (2026)</p>
+          </div>
+          <div class="education-item">
+            <h3 class="education-degree">BS Computer Science</h3>
+            <p class="education-institution">University of Nueva Caceres</p>
+          </div>
+          <div class="education-item">
+            <h3 class="education-degree">STEM Graduation</h3>
+            <p class="education-institution">University of Nueva Caceres (Secondary)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact section" id="contact">
+      <div class="contact-container container grid">
+        <div class="contact-left">
+          <div class="contact-profile">
+            <img src="./assets/images/profile1.png" alt="Gabriel B. Ramores" class="profile-image">
+            <div class="contact-info">
+              <p><i class="ri-mail-line"></i> gabrielramores05@gmail.com</p>
+              <p><i class="ri-phone-line"></i> 09073469047</p>
+              <p><i class="ri-linkedin-box-line"></i> <a href="https://www.linkedin.com/in/gabriel-ramores" target="_blank">LinkedIn Profile</a></p>
+            </div>
+            <p class="contact-quote">"I leverage AI to accelerate technical implementation, ensuring that human creativity remains the driving force behind every line of code."</p>
+            <a href="assets/pdf/05_GabrielRamores_UI_UX_Resume_i_042126.pdf" target="_blank" download class="button">Download Resume</a>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <div class="contact-group">
+            <h2 class="contact-title">Start a Project</h2>
+            <p class="contact-description">I am currently available for high-impact projects and full-time roles. Let's initialize a discussion.</p>
+          </div>
+
+          <form class="contact-form grid" id="contact-form">
+            <div class="contact-form-div">
+              <label for="contact-name" class="contact-label">Name</label>
+              <input type="text" name="name" class="contact-input" id="contact-name" required>
+            </div>
+
+            <div class="contact-form-div">
+              <label for="contact-email" class="contact-label">Email</label>
+              <input type="email" name="email" class="contact-input" id="contact-email" required>
+            </div>
+
+            <div class="contact-form-div">
+              <label for="contact-message" class="contact-label">Project Details</label>
+              <textarea name="message" class="contact-input contact-area" id="contact-message" required></textarea>
+            </div>
+
+            <button type="submit" class="button contact-button">Initialize Discussion</button>
+            <p class="contact-message" id="message"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-container container">
+      <p class="footer-copyright">&copy; 2026 <span>Gabriel B. Ramores</span>. All Rights Reserved</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/gabriel-ramores" target="_blank" class="footer-link"><i class="ri-linkedin-fill"></i></a>
+        <a href="https://www.github.com/" target="_blank" class="footer-link"><i class="ri-github-fill"></i></a>
+      </div>
     </div>
+  </footer>
 
-    <form class="contact-form grid" id="contact-form">
-      <div class="contact-form-div">
-        <label for="contact-name" class="contact-label">Name</label>
-        <input type="text" name="name" class="contact-input" id="contact-name" autocomplete="name">
-      </div>
-
-      <div class="contact-form-div">
-        <label for="contact-email" class="contact-label">Email</label>
-        <input type="email" name="email" class="contact-input" id="contact-email" autocomplete="email">
-      </div>
-
-      <div class="contact-form-div">
-        <label for="contact-message" class="contact-label">Message</label>
-        <textarea name="message" class="contact-input contact-area" id="contact-message" autocomplete="off"></textarea>
-      </div>
-
-      <button type="submit" class="button contact-button">Send Message</button>
-      <p class="contact-message" id="message"></p>
-    </form>
-  </div>
-</section>
-
-</main>
-
-<!-- ============ FOOTER ============ -->
-<footer class="footer">
-  <div class="footer-container container">
-    <div class="footer-social">
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-      <a href="https://www.github.com/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub"><i class="ri-github-fill"></i></a>
-    </div>
-    <p class="footer-copyright">© 2026 <span>Gabriel</span>. All Rights Reserved</p>
-    <p class="footer-copyright">Developed by <span>Gabriel Ramores</span></p>
-  </div>
-</footer>
-
-<!-- ============ GSAP ============ -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
-<!-- ============ COUNT-UP ============ -->
-<script type="module" src="https://cdn.jsdelivr.net/gh/lekoala/formidable-elements@master/dist/count-up.min.js"></script>
-<!-- ============ MIXITUP ============ -->
-<script src="assets/js/mixitup.min.js"></script>
-<!-- ============ EMAIL JS ============ -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<!-- ============ SCROLL REVEAL ============ -->
-<script src="https://unpkg.com/scrollreveal"></script>
-<!-- ============ MAIN JS ============ -->
-<script src="assets/js/main.js"></script>
+  <!-- ============ JAVASCRIPT LIBRARIES ============ -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

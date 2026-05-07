@@ -2,30 +2,33 @@
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
       navClose = document.getElementById('nav-close');
+
 /*============= MENU SHOW =============*/
-/*Validate if constant exists*/
 if(navToggle) {
   navToggle.addEventListener('click', () => {
     navMenu.classList.add('show-menu');
-});
+    document.getElementById('header').classList.add('show-menu-header');
+    document.body.classList.add('no-scroll');
+  });
 }
 
 /*============= MENU HIDDEN =============*/
-/* Validate if constant exists */
 if(navClose) {
   navClose.addEventListener('click', () => {
     navMenu.classList.remove('show-menu');
-});
+    document.getElementById('header').classList.remove('show-menu-header');
+    document.body.classList.remove('no-scroll');
+  });
 }
 
 /*============= REMOVE MENU MOBILE =============*/
-
 const navLink = document.querySelectorAll('.nav-link');
 
-const linkAction =() => {
+const linkAction = () => {
   const navMenu = document.getElementById('nav-menu');
-
   navMenu.classList.remove('show-menu');
+  document.getElementById('header').classList.remove('show-menu-header');
+  document.body.classList.remove('no-scroll');
 };
 
 navLink.forEach((n) => n.addEventListener('click', linkAction));
@@ -33,16 +36,13 @@ navLink.forEach((n) => n.addEventListener('click', linkAction));
 /*============= CHANGE BACKGROUND HEADER =============*/
 const scrollHeader = () => {
   const header = document.getElementById('header');
-
-  window.scrollY >= 20 
-    ? header.classList.add('scroll-header') 
+  window.scrollY >= 50
+    ? header.classList.add('scroll-header')
     : header.classList.remove('scroll-header');
 };
-
 window.addEventListener('scroll', scrollHeader);
 
 /*============= SCROLL SECTIONS ACTIVE LINK =============*/
-
 const sections = document.querySelectorAll('section[id]');
 
 const scrollActive = () => {
@@ -50,217 +50,212 @@ const scrollActive = () => {
 
   sections.forEach((current) => {
     const sectionHeight = current.offsetHeight,
-    sectionTop = current.offsetTop - 58,
-    sectionId = current.getAttribute('id'),
-    sectionClass = document.querySelector('.nav-menu a[href*=' + sectionId + ']'
-    );
+          sectionTop = current.offsetTop - 100,
+          sectionId = current.getAttribute('id'),
+          sectionClass = document.querySelector('.nav-menu a[href*=' + sectionId + ']');
 
-    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      sectionClass.classList.add('active-link');
-    }else {
-      sectionClass.classList.remove('active-link');
+    if(sectionClass) {
+      if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        sectionClass.classList.add('active-link');
+      } else {
+        sectionClass.classList.remove('active-link');
+      }
     }
   });
 };
+window.addEventListener('scroll', scrollActive);
 
-window.addEventListener('scroll', scrollActive)
-
-/*============= SCROLL ABOUT ANIMATION =============*/
+/*============= GSAP ANIMATIONS (Premium Feel) =============*/
 gsap.registerPlugin(ScrollTrigger);
-gsap.utils.toArray('.text-gradient').forEach((span) => {
-  gsap.to(span, {
-    backgroundSize: '100% 100%',
-    ease: 'none',
+
+// Hero Entrance
+const tl = gsap.timeline();
+tl.from('.landing-title', { duration: 1.2, y: 100, opacity: 0, ease: 'power4.out' })
+  .from('.landing-headline', { duration: 1, y: 50, opacity: 0, ease: 'power3.out' }, '-=0.8')
+  .from('.landing-buttons', { duration: 0.8, y: 30, opacity: 0, ease: 'power2.out' }, '-=0.6')
+  .from('.landing-slider', { duration: 0.8, opacity: 0 }, '-=0.4');
+
+// Scroll Animations
+gsap.utils.toArray('.section-title').forEach(title => {
+  gsap.from(title, {
     scrollTrigger: {
-      trigger: span,
-      start: 'top bottom',
-      end: 'top center',
-      scrub: true,
-    }
-  })
-});
-
-/*============= DARK LIGHT THEME =============*/
-
-window.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.getElementById('theme-toggle');
-
-  function applyTheme(theme) {
-    if(theme === 'light') {
-      document.body.classList.add('light-theme');
-      toggleBtn.classList.remove('ri-sun-line');toggleBtn.classList.add('ri-moon-line');
-    } else {
-      document.body.classList.remove('light-theme');
-      toggleBtn.classList.add('ri-sun-line');toggleBtn.classList.remove('ri-moon-line');
-    }
-
-    localStorage.setItem('theme', theme)
-  }
-
-  const savedTheme = localStorage.getItem('theme') || 'dark'; applyTheme(savedTheme);
-
-  toggleBtn.addEventListener('click', () => {
-    const isLight = document.body.classList.contains('light-theme');
-    applyTheme(isLight ? 'dark' : 'light');
+      trigger: title,
+      start: 'top 85%',
+    },
+    duration: 1,
+    y: 30,
+    opacity: 0,
+    ease: 'power3.out'
   });
 });
 
-/*============= MIXITUP FILTER PORTFOLIO =============*/
-var mixer = mixitup('.work-container', {
-  selectors: {
-    target: '.mix',
-  },
-  animation: {
-    duration: 300,
-  },
+gsap.utils.toArray('.project-card').forEach(card => {
+  gsap.from(card, {
+    scrollTrigger: {
+      trigger: card,
+      start: 'top 90%',
+    },
+    duration: 1,
+    y: 50,
+    opacity: 0,
+    ease: 'power3.out'
+  });
 });
 
+/*============= MOUSE TRACKING GLOW (Top 1% Interaction) =============*/
+document.querySelectorAll('.project-card').forEach(card => {
+  card.onmousemove = e => {
+    const rect = card.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
 
-/* Active work */
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+});
+
+/*============= INTERACTIVE HUE SLIDER (Unified Logic) =============*/
+const hueSlider = document.getElementById('hue-slider');
+const hueValueText = document.getElementById('hue-value');
+const favoriteColorField = document.getElementById('favorite-color');
+
+const updateHue = (hue) => {
+  document.documentElement.style.setProperty('--first-hue', hue);
+  
+  // Requirement: adjust background color of the 1st section as visitor drags
+  // We'll use a very subtle, premium tinted version of the hue for the background
+  const heroBg = `hsla(${hue}, 70%, 42%, 0.15)`;
+  document.documentElement.style.setProperty('--hero-bg', heroBg);
+  
+  const colorNames = [
+    {h: 30, n: 'Crimson Peak'}, {h: 60, n: 'Solar Flare'}, {h: 90, n: 'Electric Lime'},
+    {h: 120, n: 'Jade Forest'}, {h: 150, n: 'Emerald Night'}, {h: 180, n: 'Arctic Frost'},
+    {h: 210, n: 'Electric Sapphire'}, {h: 240, n: 'Deep Ocean'}, {h: 270, n: 'Royal Amethyst'},
+    {h: 300, n: 'Neon Orchid'}, {h: 330, n: 'Midnight Rose'}, {h: 360, n: 'Crimson Peak'}
+  ];
+
+  const colorName = colorNames.find(c => hue < c.h)?.n || 'Custom';
+  
+  if(hueValueText) hueValueText.textContent = colorName;
+  if(favoriteColorField) favoriteColorField.value = `${colorName} (${hue}°)`;
+};
+
+if(hueSlider) {
+  hueSlider.addEventListener('input', (e) => updateHue(e.target.value));
+  // Initialize
+  updateHue(hueSlider.value);
+}
+
+/*============= THEME TOGGLE =============*/
+const themeButton = document.getElementById('theme-toggle');
+const darkTheme = 'light-theme';
+const iconTheme = 'ri-moon-line';
+
+const selectedTheme = localStorage.getItem('selected-theme');
+const selectedIcon = localStorage.getItem('selected-icon');
+
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'light' : 'dark';
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-sun-line' : 'ri-moon-line';
+
+if (selectedTheme) {
+  document.body.classList[selectedTheme === 'light' ? 'add' : 'remove'](darkTheme);
+  themeButton.classList[selectedIcon === 'ri-sun-line' ? 'add' : 'remove'](iconTheme);
+}
+
+themeButton.addEventListener('click', () => {
+    document.body.classList.toggle(darkTheme);
+    themeButton.classList.toggle(iconTheme);
+    localStorage.setItem('selected-theme', getCurrentTheme());
+    localStorage.setItem('selected-icon', getCurrentIcon());
+});
 
 /*============= EMAIL JS =============*/
+const contactForm = document.getElementById('contact-form');
+const message = document.getElementById('message');
 
-const contactForm = document.getElementById('contact-form'),
-contactName = document.getElementById('contact-name'),
-contactEmail = document.getElementById('contact-email'),
-contactMessage = document.getElementById('contact-message'),
-message = document.getElementById('message');
+if(contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-const sendEmail = (e) => {
-  e.preventDefault();
-
-
-  if(
-    contactName.value === '' || 
-    contactEmail.value === '' || 
-    contactMessage.value === ''
-  ) {
-   message.textContent = 'Fill up all the fields';
-
-   setTimeout(() => {
-    message.textContent = '';
-   }, 3000);
-  } else {
-      emailjs
-      .sendForm(
-        'service_8bt8akq', 
-        'template_bbuikbr', 
-        '#contact-form', 
-        'UAD5a48rFPLgFavcC')
-        
-      .then(
-        () => {
-          message.textContent = 'Message sent';
-
-          setTimeout(() => {
-            message.textContent = '';
-          }, 5000);
-       },
-       (error) => {
-         alert('Something Went Wrong!!!', error);
-       }
-      );
-      contactName.value = '';
-      contactEmail.value = '';
-      contactMessage.value = '';
-    }
-};
-
-contactForm.addEventListener('submit', sendEmail);
-
-
-
-/*============= SCROLL REVEAL ANIMATION =============*/
-const sr = ScrollReveal({
-  origin: 'top',
-  distance: '16px',
-  duration: 500,
-  delay: 100,
-  easing: 'ease-out',
-  reset: false
-});
-
-/* ================= HOME ================= */
-sr.reveal('.home-img-wrapper');
-
-sr.reveal('.home-title', { delay: 120 });
-sr.reveal('.home-job', { delay: 160 });
-sr.reveal('.home-description', { delay: 200 });
-sr.reveal('.button', { delay: 240 });
-
-sr.reveal('.home-social-link', {
-  interval: 70,
-  delay: 260
-});
-
-/* ================= ABOUT ================= */
-sr.reveal('.about-experience');
-sr.reveal('.about-description', { delay: 120 });
-sr.reveal('.about-item', { interval: 80, delay: 160 });
-
-/* ================= SERVICES ================= */
-sr.reveal('.services-card', {
-  interval: 100
-});
-
-/* ================= SKILLS ================= */
-sr.reveal('.skills-group');
-sr.reveal('.skills-data', {
-  interval: 80,
-  delay: 120
-});
-
-/* ================= RESUME ================= */
-sr.reveal('.resume-item', {
-  interval: 120
-});
-
-/* ================= PORTFOLIO ================= */
-sr.reveal('.work-item', {
-  interval: 80
-});
-
-sr.reveal('.work-card', {
-  interval: 120,
-  delay: 100
-});
-
-/* ================= My Journey ================= */
-
-/* LEFT SIDE ITEMS */
-sr.reveal('.resume-item', {
-  interval: 300
-});
-
-/* LEFT ITEMS */
-sr.reveal('.resume-item:nth-of-type(odd)', {
-  origin: 'left',
-  distance: '40px'
-});
-
-/* RIGHT ITEMS */
-sr.reveal('.resume-item:nth-of-type(even)', {
-  origin: 'right',
-  distance: '40px'
-});
-
-/* ================= FOOTER ================= */
-sr.reveal('.footer-social, .footer-copyright', {
-  delay: 120
-});
-
-/* ================= GLOBAL ================= */
-sr.reveal('.section-title');
-
-/* ================= LIVE THEME CUSTOMIZER (SANDBOX) ================= */
-const themeSlider = document.getElementById('theme-slider');
-const hueValueText = document.getElementById('hue-value');
-const rootElement = document.documentElement;
-
-if (themeSlider && hueValueText) {
-  themeSlider.addEventListener('input', (e) => {
-    const newHue = e.target.value;
-    rootElement.style.setProperty('--first-hue', newHue);
-    hueValueText.textContent = newHue;
+    emailjs.sendForm('service_8bt8akq', 'template_bbuikbr', '#contact-form', 'UAD5a48rFPLgFavcC')
+      .then(() => {
+        message.textContent = 'Message sent successfully!';
+        message.style.color = 'var(--first-color)';
+        contactForm.reset();
+        setTimeout(() => message.textContent = '', 5000);
+      }, (error) => {
+        message.textContent = 'Oops! Something went wrong.';
+        message.style.color = '#ef4444';
+      });
   });
 }
+
+/*============= GSAP ANIMATIONS =============*/
+window.addEventListener('load', () => {
+  console.log('GSAP: Initializing animations...');
+  
+  try {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Safe-First: Hide elements only after GSAP is ready
+    gsap.set('.landing-label, .landing-title, .landing-headline, .landing-buttons, .landing-slider, .project-card, .tools-group, .section-title', { 
+      opacity: 0, 
+      y: 30 
+    });
+
+    // Hero Entrance
+    const tl = gsap.timeline();
+    tl.to('.landing-label', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' })
+      .to('.landing-title', { opacity: 1, y: 0, duration: 1.2, ease: 'power4.out' }, '-=0.8')
+      .to('.landing-headline', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.8')
+      .to('.landing-buttons', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.8')
+      .to('.landing-slider', { opacity: 1, scale: 1, duration: 1, ease: 'power4.out' }, '-=0.6');
+
+    console.log('GSAP: Hero animation fired.');
+
+    // Staggered Project Reveal
+    gsap.to('.project-card', {
+      scrollTrigger: {
+        trigger: '.projects-grid',
+        start: 'top 92%',
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.15,
+      ease: 'power3.out'
+    });
+
+    // Tools Reveal
+    gsap.to('.tools-group', {
+      scrollTrigger: {
+        trigger: '.tools-grid',
+        start: 'top 95%',
+      },
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: 'back.out(1.7)'
+    });
+
+    // Section Title Reveal
+    gsap.utils.toArray('.section-title').forEach(title => {
+      gsap.to(title, {
+        scrollTrigger: {
+          trigger: title,
+          start: 'top 95%',
+        },
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: 'power2.out'
+      });
+    });
+    
+    console.log('GSAP: Scroll animations initialized.');
+  } catch (error) {
+    console.error('GSAP Error:', error);
+    // Elements are already opacity 1 by default in CSS, so no fallback needed.
+  }
+});
