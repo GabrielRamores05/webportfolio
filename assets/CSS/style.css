@@ -180,13 +180,21 @@
 
 /*============= HEADER & NAV =============*/
 .header {
-  background-color: transparent;
+  background-color: var(--body-color);
+  box-shadow: 0 4px 4px hsla(var(--first-hue), 0%, 4%, 0.1);
   position: fixed;
   inset: 0 0 auto;
   z-index: 1000;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    background-color: transparent;
+    box-shadow: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
 
 .scroll-header {
@@ -832,8 +840,14 @@
 
 .contact-container {
   max-width: 1000px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--sp-12);
+}
+
+@media screen and (min-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .contact-left {

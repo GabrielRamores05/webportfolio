@@ -113,25 +113,40 @@ if(hueSlider) {
 
 /*============= THEME TOGGLE =============*/
 const themeButton = document.getElementById('theme-toggle');
-const darkTheme = 'light-theme';
-const iconTheme = 'ri-moon-line';
+const lightThemeClass = 'light-theme';
+const iconMoon = 'ri-moon-line';
+const iconSun = 'ri-sun-line';
 
-const selectedTheme = localStorage.getItem('selected-theme');
-const selectedIcon = localStorage.getItem('selected-icon');
+let selectedTheme = localStorage.getItem('selected-theme');
 
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'light' : 'dark';
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-sun-line' : 'ri-moon-line';
+// Default to light theme if no preference is saved
+if (!selectedTheme) {
+  selectedTheme = 'light';
+  localStorage.setItem('selected-theme', 'light');
+}
 
-if (selectedTheme) {
-  document.body.classList[selectedTheme === 'light' ? 'add' : 'remove'](darkTheme);
-  themeButton.classList[selectedIcon === 'ri-sun-line' ? 'add' : 'remove'](iconTheme);
+if (selectedTheme === 'light') {
+  document.body.classList.add(lightThemeClass);
+  themeButton.classList.add(iconMoon);
+  themeButton.classList.remove(iconSun);
+} else {
+  document.body.classList.remove(lightThemeClass);
+  themeButton.classList.add(iconSun);
+  themeButton.classList.remove(iconMoon);
 }
 
 themeButton.addEventListener('click', () => {
-    document.body.classList.toggle(darkTheme);
-    themeButton.classList.toggle(iconTheme);
-    localStorage.setItem('selected-theme', getCurrentTheme());
-    localStorage.setItem('selected-icon', getCurrentIcon());
+    document.body.classList.toggle(lightThemeClass);
+    
+    if (document.body.classList.contains(lightThemeClass)) {
+      themeButton.classList.add(iconMoon);
+      themeButton.classList.remove(iconSun);
+      localStorage.setItem('selected-theme', 'light');
+    } else {
+      themeButton.classList.add(iconSun);
+      themeButton.classList.remove(iconMoon);
+      localStorage.setItem('selected-theme', 'dark');
+    }
 });
 
 /*============= EMAIL JS =============*/
