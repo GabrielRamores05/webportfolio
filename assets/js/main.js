@@ -256,20 +256,7 @@ function initGSAP() {
       ease: 'power3.out'
     });
 
-    // Parallax Ambient Text
-    gsap.utils.toArray('.ambient-text').forEach(text => {
-      const speed = parseFloat(text.getAttribute('data-speed')) || 1;
-      gsap.to(text, {
-        scrollTrigger: {
-          trigger: text.parentElement,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1
-        },
-        x: -300 * speed,
-        ease: 'none'
-      });
-    });
+
 
     // Journey Timeline Fill
     gsap.utils.toArray('.timeline-fill').forEach(fill => {

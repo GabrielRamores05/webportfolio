@@ -1394,25 +1394,7 @@ img {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/*============= AMBIENT TEXT =============*/
-.ambient-text {
-  position: absolute;
-  font-size: clamp(8rem, 15vw, 20rem);
-  font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(150, 150, 150, 0.15);
-  text-transform: uppercase;
-  white-space: nowrap;
-  z-index: 0;
-  pointer-events: none;
-  font-family: 'Space Grotesk', sans-serif;
-  user-select: none;
-  opacity: 0.8;
-}
 
-.light-theme .ambient-text {
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.05);
-}
 
 /*============= CUSTOM CURSOR =============*/
 .custom-cursor {
