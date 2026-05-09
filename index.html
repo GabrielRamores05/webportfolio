@@ -20,6 +20,15 @@
   <link rel="stylesheet" href="assets/CSS/style.css">
 </head>
 <body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <span class="preloader-text">G.R.</span>
+    <div class="preloader-progress"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+
   <!-- ============ HEADER - RESPONSIVE NAVBAR ============ -->
   <header class="header" id="header">
     <nav class="nav container">
@@ -49,6 +58,10 @@
 
       <!-- ============ LANDING (HERO) ============ -->
       <section class="landing section" id="landing">
+        <!-- Animated Ambient Orbs -->
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+
         <div class="landing-container">
           <div class="landing-content">
             <h2 class="landing-label">Full Stack Web Developer</h2>
@@ -82,7 +95,7 @@
               <img src="assets/images/project_leads.png" alt="CORA Lead-Gen Funnel System" class="project-image">
             </div>
             <h3 class="project-title">CORA: Full-Cycle System Development</h3>
-            <p class="project-description">Independently architected and deployed the entire CORA ecosystem in a rapid **48-hour turnaround**. Managed the full-cycle development using **Stitch wireframing** and **Figma prototyping** for seamless client collaboration. Integrated **Meta Pixel** and **Custom Bot Automation** to transition users from social content to interactive demos. **Generated 10 qualified leads in 3 days** and automated a system saving **291+ hours of manual labor monthly**.</p>
+            <p class="project-description">Independently architected and deployed the entire CORA ecosystem in a rapid <strong>48-hour turnaround</strong>. Managed the full-cycle development using <strong>Stitch wireframing</strong> and <strong>Figma prototyping</strong> for seamless client collaboration. Integrated <strong>Meta Pixel</strong> and <strong>Custom Bot Automation</strong> to transition users from social content to interactive demos. <strong>Generated 10 qualified leads in 3 days</strong> and automated a system saving <strong>291+ hours of manual labor monthly</strong>.</p>
             <div class="project-links">
               <a href="https://cora-landing-page-liart.vercel.app/" target="_blank" class="button button-small">View Live System</a>
             </div>
@@ -93,16 +106,20 @@
             <div class="project-img-wrapper">
               <img src="assets/images/project_api.png" alt="E-commerce API Documentation" class="project-image">
             </div>
-            <h3 class="project-title">E-commerce API Documentation</h3>
-            <p class="project-description">Dynamic E-commerce Workflow Management featuring dynamic routes for order processing, real-time inventory updates and secure user authentication. Publicly documented using Postman.</p>
+            <div class="project-data">
+              <h3 class="project-title">E-commerce API Documentation</h3>
+              <p class="project-description">Dynamic E-commerce Workflow Management featuring dynamic routes for order processing, real-time inventory updates and secure user authentication. Publicly documented using Postman.</p>
+            </div>
           </article>
 
           <article class="project-card">
             <div class="project-img-wrapper">
               <img src="assets/images/project_api.png" alt="Course Booking API Documentation" class="project-image">
             </div>
-            <h3 class="project-title">Course Booking API Documentation</h3>
-            <p class="project-description">RESTful API for managing course enrollments, featuring user registration, authentication, and retrieval of details. Publicly documented using Postman.</p>
+            <div class="project-data">
+              <h3 class="project-title">Course Booking API Documentation</h3>
+              <p class="project-description">RESTful API for managing course enrollments, featuring user registration, authentication, and retrieval of details. Publicly documented using Postman.</p>
+            </div>
           </article>
 
           <!-- App Projects -->
@@ -140,158 +157,123 @@
           </article>
 
           <!-- Capstones -->
+          <!-- Capstones -->
           <article class="project-card">
             <div class="project-img-wrapper">
               <img src="assets/images/project_booking.png" alt="Short Courses Capstone" class="project-image">
             </div>
-            <h3 class="project-title">Short Courses Capstone</h3>
-            <p class="project-description">Placeholder for your short courses capstone project. Optimized for conversion and minimalist UI design principles.</p>
+            <div class="project-data">
+              <h3 class="project-title">Short Courses Capstone</h3>
+              <p class="project-description">Placeholder for your short courses capstone project. Optimized for conversion and minimalist UI design principles.</p>
+            </div>
           </article>
 
           <article class="project-card">
             <div class="project-img-wrapper">
               <img src="assets/images/project_mern.png" alt="Short Courses Capstone" class="project-image">
             </div>
-            <h3 class="project-title">Short Courses Capstone</h3>
-            <p class="project-description">Placeholder for your short courses capstone project. Focused on clean layouts and accessibility.</p>
+            <div class="project-data">
+              <h3 class="project-title">Short Courses Capstone</h3>
+              <p class="project-description">Placeholder for your short courses capstone project. Focused on clean layouts and accessibility.</p>
+            </div>
           </article>
 
           <article class="project-card">
             <div class="project-img-wrapper">
               <img src="assets/images/project_api.png" alt="Short Courses Capstone" class="project-image">
             </div>
-            <h3 class="project-title">Short Courses Capstone</h3>
-            <p class="project-description">Placeholder for your short courses capstone project. Featuring robust backend architecture.</p>
+            <div class="project-data">
+              <h3 class="project-title">Short Courses Capstone</h3>
+              <p class="project-description">Placeholder for your short courses capstone project. Featuring robust backend architecture.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ TOOLS ============ -->
+    <!-- ============ TOOLS (INFINITE MARQUEE) ============ -->
     <section class="tools section" id="tools">
-      <div class="tools-container container">
+      <div class="tools-container">
         <h2 class="section-title">Technical Stack</h2>
         <p class="section-subtitle">Mastering the tools that bridge the gap between design and development</p>
 
-        <div class="tools-grid">
-          <!-- Front End Group -->
-          <div class="tools-group">
-            <h3 class="tools-category">Front End & UX</h3>
-            <div class="tools-icons grid">
-              <div class="tool-item">
-                <i class="ri-html5-line tool-icon"></i>
-                <span class="tool-name">HTML / CSS</span>
-              </div>
-              <div class="tool-item">
-                <i class="ri-bootstrap-line tool-icon"></i>
-                <span class="tool-name">Bootstrap</span>
-              </div>
-              <div class="tool-item">
-                <i class="ri-javascript-line tool-icon"></i>
-                <span class="tool-name">Modern JS</span>
-              </div>
-              <div class="tool-item">
-                <i class="ri-responsive-line tool-icon"></i>
-                <span class="tool-name">Responsive Design</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- MERN Group -->
-          <div class="tools-group">
-            <h3 class="tools-category">Full Stack MERN</h3>
-            <div class="tools-icons grid">
-              <div class="tool-item">
-                <i class="ri-database-2-line tool-icon"></i>
-                <span class="tool-name">mongoDB</span>
-              </div>
-              <div class="tool-item">
-                <i class="ri-server-line tool-icon"></i>
-                <span class="tool-name">Express</span>
-              </div>
-              <div class="tool-item">
-                <i class="ri-reactjs-line tool-icon"></i>
-                <span class="tool-name">React</span>
-              </div>
-              <div class="tool-item">
-                <i class="ri-nodejs-line tool-icon"></i>
-                <span class="tool-name">Node</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Strategy Group -->
-          <div class="tools-group">
-            <h3 class="tools-category">Design & Automation</h3>
-            <div class="tools-icons grid">
-              <div class="tool-item">
-                <i class="ri-edit-line tool-icon"></i>
-                <span class="tool-name">Figma / Adobe / Stitch</span>
-              </div>
-              <div class="tool-item">
-                <i class="ri-robot-line tool-icon"></i>
-                <span class="tool-name">Bot & AI Automation</span>
-              </div>
-              <div class="tool-item">
-                <i class="ri-send-plane-line tool-icon"></i>
-                <span class="tool-name">Meta Pixel / EmailJS</span>
-              </div>
-              <div class="tool-item">
-                <i class="ri-user-search-line tool-icon"></i>
-                <span class="tool-name">Usability Testing</span>
-              </div>
-            </div>
+        <div class="marquee-wrapper">
+          <div class="marquee-content">
+            <!-- First set of items -->
+            <div class="tool-item"><i class="ri-html5-line tool-icon"></i><span class="tool-name">HTML/CSS</span></div>
+            <div class="tool-item"><i class="ri-javascript-line tool-icon"></i><span class="tool-name">Modern JS</span></div>
+            <div class="tool-item"><i class="ri-reactjs-line tool-icon"></i><span class="tool-name">React</span></div>
+            <div class="tool-item"><i class="ri-nodejs-line tool-icon"></i><span class="tool-name">Node.js</span></div>
+            <div class="tool-item"><i class="ri-database-2-line tool-icon"></i><span class="tool-name">mongoDB</span></div>
+            <div class="tool-item"><i class="ri-server-line tool-icon"></i><span class="tool-name">Express</span></div>
+            <div class="tool-item"><i class="ri-edit-line tool-icon"></i><span class="tool-name">Figma</span></div>
+            <div class="tool-item"><i class="ri-robot-line tool-icon"></i><span class="tool-name">Automation</span></div>
+            <div class="tool-item"><i class="ri-send-plane-line tool-icon"></i><span class="tool-name">EmailJS</span></div>
+            <!-- Duplicated set for seamless loop -->
+            <div class="tool-item"><i class="ri-html5-line tool-icon"></i><span class="tool-name">HTML/CSS</span></div>
+            <div class="tool-item"><i class="ri-javascript-line tool-icon"></i><span class="tool-name">Modern JS</span></div>
+            <div class="tool-item"><i class="ri-reactjs-line tool-icon"></i><span class="tool-name">React</span></div>
+            <div class="tool-item"><i class="ri-nodejs-line tool-icon"></i><span class="tool-name">Node.js</span></div>
+            <div class="tool-item"><i class="ri-database-2-line tool-icon"></i><span class="tool-name">mongoDB</span></div>
+            <div class="tool-item"><i class="ri-server-line tool-icon"></i><span class="tool-name">Express</span></div>
+            <div class="tool-item"><i class="ri-edit-line tool-icon"></i><span class="tool-name">Figma</span></div>
+            <div class="tool-item"><i class="ri-robot-line tool-icon"></i><span class="tool-name">Automation</span></div>
+            <div class="tool-item"><i class="ri-send-plane-line tool-icon"></i><span class="tool-name">EmailJS</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ SUCCESS OUTCOMES (EXPERIENCE) ============ -->
-    <section class="experience section" id="experience">
-      <div class="experience-container container">
-        <h2 class="section-title">Success Outcomes</h2>
-        <p class="section-subtitle">Real-world impact delivered through strategic marketing and design</p>
-
-        <div class="experience-content grid">
-          <div class="experience-item">
-            <h3 class="experience-role">Marketing Manager | Funnel Specialist</h3>
-            <p class="experience-company">Edgepoint Solutions, INC. (2026)</p>
-            <ul class="experience-achievements">
-              <li>Architected a funnel system producing **300+ qualified leads** in a single month, accelerating revenue opportunities by 400%.</li>
-              <li>Refined SaaS content strategy using market data, driving a **500% increase in inbound engagement**.</li>
-            </ul>
-          </div>
-          
-          <div class="experience-item">
-            <h3 class="experience-role">Freelance Funnel Consultant</h3>
-            <p class="experience-company">CORA | Cooperative Operations and Records Application</p>
-            <ul class="experience-achievements">
-              <li>Integrated Meta Pixel and bot automation to transition users from social content to interactive demos.</li>
-              <li>Generated **10 qualified leads in 3 days** for a new demo campaign (baseline was 0).</li>
-            </ul>
-          </div>
+    <!-- ============ THE JOURNEY (EXPERIENCE & EDUCATION SPLIT) ============ -->
+    <section class="journey section" id="experience">
+      <div class="journey-container container">
+        <div class="journey-header">
+          <h2 class="section-title">The Journey</h2>
+          <p class="section-subtitle">Real-world impact paired with academic foundations</p>
         </div>
-      </div>
-    </section>
 
-    <!-- ============ EDUCATION ============ -->
-    <section class="education section" id="education">
-      <div class="education-container container">
-        <h2 class="section-title">Knowledge Foundations</h2>
-        <p class="section-subtitle">Academic excellence and specialized technical certifications</p>
+        <div class="journey-grid grid">
+          <!-- Experience Column -->
+          <div class="journey-column">
+            <h3 class="journey-column-title"><i class="ri-briefcase-line"></i> Experience</h3>
+            <div class="experience-content grid">
+              <div class="experience-item">
+                <h3 class="experience-role">Marketing Manager | Funnel Specialist</h3>
+                <p class="experience-company">Edgepoint Solutions, INC. (2026)</p>
+                <ul class="experience-achievements">
+                  <li>Architected a funnel system producing <strong>300+ qualified leads</strong> in a single month, accelerating revenue opportunities by 400%.</li>
+                  <li>Refined SaaS content strategy using market data, driving a <strong>500% increase in inbound engagement</strong>.</li>
+                </ul>
+              </div>
+              
+              <div class="experience-item">
+                <h3 class="experience-role">Freelance Funnel Consultant</h3>
+                <p class="experience-company">CORA | Cooperative Operations</p>
+                <ul class="experience-achievements">
+                  <li>Integrated Meta Pixel and bot automation to transition users from social content to interactive demos.</li>
+                  <li>Generated <strong>10 qualified leads in 3 days</strong> for a new demo campaign.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-        <div class="education-content grid">
-          <div class="education-item">
-            <h3 class="education-degree">Full Stack Developer Certification</h3>
-            <p class="education-institution">Zuitt Coding Bootcamp (2026)</p>
-          </div>
-          <div class="education-item">
-            <h3 class="education-degree">BS Computer Science</h3>
-            <p class="education-institution">University of Nueva Caceres</p>
-          </div>
-          <div class="education-item">
-            <h3 class="education-degree">STEM Graduation</h3>
-            <p class="education-institution">University of Nueva Caceres (Secondary)</p>
+          <!-- Education Column -->
+          <div class="journey-column">
+            <h3 class="journey-column-title"><i class="ri-graduation-cap-line"></i> Education</h3>
+            <div class="education-content grid">
+              <div class="education-item">
+                <h3 class="education-degree">Full Stack Developer Certification</h3>
+                <p class="education-institution">Zuitt Coding Bootcamp (2026)</p>
+              </div>
+              <div class="education-item">
+                <h3 class="education-degree">BS Computer Science</h3>
+                <p class="education-institution">University of Nueva Caceres</p>
+              </div>
+              <div class="education-item">
+                <h3 class="education-degree">STEM Graduation</h3>
+                <p class="education-institution">University of Nueva Caceres</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -356,6 +338,7 @@
   </footer>
 
   <!-- ============ JAVASCRIPT LIBRARIES ============ -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
   <script src="assets/js/main.js"></script>

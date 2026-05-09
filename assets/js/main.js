@@ -65,42 +65,7 @@ const scrollActive = () => {
 };
 window.addEventListener('scroll', scrollActive);
 
-/*============= GSAP ANIMATIONS (Premium Feel) =============*/
-gsap.registerPlugin(ScrollTrigger);
-
-// Hero Entrance
-const tl = gsap.timeline();
-tl.from('.landing-title', { duration: 1.2, y: 100, opacity: 0, ease: 'power4.out' })
-  .from('.landing-headline', { duration: 1, y: 50, opacity: 0, ease: 'power3.out' }, '-=0.8')
-  .from('.landing-buttons', { duration: 0.8, y: 30, opacity: 0, ease: 'power2.out' }, '-=0.6')
-  .from('.landing-slider', { duration: 0.8, opacity: 0 }, '-=0.4');
-
-// Scroll Animations
-gsap.utils.toArray('.section-title').forEach(title => {
-  gsap.from(title, {
-    scrollTrigger: {
-      trigger: title,
-      start: 'top 85%',
-    },
-    duration: 1,
-    y: 30,
-    opacity: 0,
-    ease: 'power3.out'
-  });
-});
-
-gsap.utils.toArray('.project-card').forEach(card => {
-  gsap.from(card, {
-    scrollTrigger: {
-      trigger: card,
-      start: 'top 90%',
-    },
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: 'power3.out'
-  });
-});
+/* GSAP animations are handled in the window 'load' event below */
 
 /*============= MOUSE TRACKING GLOW (Top 1% Interaction) =============*/
 document.querySelectorAll('.project-card').forEach(card => {
@@ -190,17 +155,44 @@ if(contactForm) {
   });
 }
 
-/*============= GSAP ANIMATIONS =============*/
+/*============= PRELOADER & GSAP ANIMATIONS =============*/
 window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  const progress = document.querySelector('.preloader-progress');
+  
+  if (preloader && progress) {
+    // Animate progress bar
+    setTimeout(() => {
+      progress.style.width = '100%';
+    }, 100);
+
+    // Remove preloader and start animations
+    setTimeout(() => {
+      preloader.classList.add('loaded');
+      initGSAP();
+    }, 1200);
+  } else {
+    initGSAP();
+  }
+});
+
+function initGSAP() {
   console.log('GSAP: Initializing animations...');
   
   try {
     gsap.registerPlugin(ScrollTrigger);
 
     // Safe-First: Hide elements only after GSAP is ready
-    gsap.set('.landing-label, .landing-title, .landing-headline, .landing-buttons, .landing-slider, .project-card, .tools-group, .section-title', { 
+    gsap.set('.landing-label, .landing-title, .landing-headline, .landing-buttons, .landing-slider', { 
       opacity: 0, 
       y: 30 
+    });
+    gsap.set('.project-card', { 
+      opacity: 0, 
+      y: 40 
+    });
+    gsap.set('.section-title, .section-subtitle', { 
+      opacity: 0
     });
 
     // Hero Entrance
@@ -209,9 +201,32 @@ window.addEventListener('load', () => {
       .to('.landing-title', { opacity: 1, y: 0, duration: 1.2, ease: 'power4.out' }, '-=0.8')
       .to('.landing-headline', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.8')
       .to('.landing-buttons', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.8')
-      .to('.landing-slider', { opacity: 1, scale: 1, duration: 1, ease: 'power4.out' }, '-=0.6');
+      .to('.landing-slider', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.6');
 
     console.log('GSAP: Hero animation fired.');
+
+    // Section Header Reveal (title + subtitle together)
+    document.querySelectorAll('.section').forEach(section => {
+      const title = section.querySelector('.section-title');
+      const subtitle = section.querySelector('.section-subtitle');
+      if (title) {
+        gsap.to(title, {
+          scrollTrigger: { trigger: section, start: 'top 85%' },
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+      }
+      if (subtitle) {
+        gsap.to(subtitle, {
+          scrollTrigger: { trigger: section, start: 'top 85%' },
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.2,
+          ease: 'power2.out'
+        });
+      }
+    });
 
     // Staggered Project Reveal
     gsap.to('.project-card', {
@@ -225,37 +240,51 @@ window.addEventListener('load', () => {
       stagger: 0.15,
       ease: 'power3.out'
     });
-
-    // Tools Reveal
-    gsap.to('.tools-group', {
-      scrollTrigger: {
-        trigger: '.tools-grid',
-        start: 'top 95%',
-      },
-      opacity: 1,
-      scale: 1,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: 'back.out(1.7)'
-    });
-
-    // Section Title Reveal
-    gsap.utils.toArray('.section-title').forEach(title => {
-      gsap.to(title, {
-        scrollTrigger: {
-          trigger: title,
-          start: 'top 95%',
-        },
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        ease: 'power2.out'
-      });
-    });
     
     console.log('GSAP: Scroll animations initialized.');
   } catch (error) {
     console.error('GSAP Error:', error);
-    // Elements are already opacity 1 by default in CSS, so no fallback needed.
   }
-});
+}
+
+/*============= CUSTOM CURSOR LOGIC =============*/
+const customCursor = document.getElementById('custom-cursor');
+
+if (customCursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  document.addEventListener('mousemove', (e) => {
+    customCursor.style.left = e.clientX + 'px';
+    customCursor.style.top = e.clientY + 'px';
+  });
+
+  // Expand cursor on interactive elements
+  const interactives = document.querySelectorAll('a, button, input, textarea, .project-card, .tool-item, .hue-slider');
+  
+  interactives.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      customCursor.classList.add('hover');
+    });
+    el.addEventListener('mouseleave', () => {
+      customCursor.classList.remove('hover');
+    });
+  });
+}
+
+/*============= MAGNETIC BUTTONS =============*/
+const magneticButtons = document.querySelectorAll('.button');
+
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  magneticButtons.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      // Move the button slightly towards the cursor (strength: 0.3)
+      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0px, 0px)';
+    });
+  });
+}
