@@ -181,11 +181,11 @@ window.addEventListener('load', () => {
       progress.style.width = '100%';
     }, 100);
 
-    // Remove preloader and start animations
+    // Remove preloader and start animations faster
     setTimeout(() => {
       preloader.classList.add('loaded');
       initGSAP();
-    }, 1200);
+    }, 400);
   } else {
     initGSAP();
   }
@@ -210,13 +210,13 @@ function initGSAP() {
       opacity: 0
     });
 
-    // Hero Entrance
+    // Hero Entrance (Faster)
     const tl = gsap.timeline();
-    tl.to('.landing-label', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' })
-      .to('.landing-title', { opacity: 1, y: 0, duration: 1.2, ease: 'power4.out' }, '-=0.8')
-      .to('.landing-headline', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.8')
-      .to('.landing-buttons', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.8')
-      .to('.landing-slider', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.6');
+    tl.to('.landing-label', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+      .to('.landing-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
+      .to('.landing-headline', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+      .to('.landing-buttons', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+      .to('.landing-slider', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4');
 
     console.log('GSAP: Hero animation fired.');
 
