@@ -1444,4 +1444,15 @@ img {
   a, button, input, textarea, .hue-slider {
     cursor: none;
   }
+/*============= STRICT NO HORIZONTAL SCROLL =============*/
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
+}
+
+.main {
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
 }
