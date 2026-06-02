@@ -1314,12 +1314,25 @@ img {
 }
 
 .preloader-progress {
-  width: 200px;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
-}
+   width: 200px;
+   height: 2px;
+   background-color: rgba(255, 255, 255, 0.1);
+   position: relative;
+   overflow: hidden;
+ }
+ .preloader-progress::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 0%;
+   background-color: var(--first-color);
+   transition: width 1s cubic-bezier(0.23, 1, 0.32, 1);
+ }
+ .preloader-progress.full::after {
+   width: 100%;
+ }
 
 .preloader-progress::after {
   content: '';

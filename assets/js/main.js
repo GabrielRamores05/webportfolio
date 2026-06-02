@@ -83,14 +83,17 @@ document.querySelectorAll('.project-card').forEach(card => {
 const hueSlider = document.getElementById('hue-slider');
 const hueValueText = document.getElementById('hue-value');
 const favoriteColorField = document.getElementById('favorite-color');
+const dynamicStyles = document.getElementById('dynamic-styles');
 
 const updateHue = (hue) => {
-  document.documentElement.style.setProperty('--first-hue', hue);
-  
   // Requirement: adjust background color of the 1st section as visitor drags
   // We'll use a very subtle, premium tinted version of the hue for the background
   const heroBg = `hsla(${hue}, 70%, 42%, 0.15)`;
-  document.documentElement.style.setProperty('--hero-bg', heroBg);
+  
+  // Set CSS variables via a <style> tag to avoid inline styles on elements
+  if (dynamicStyles) {
+    dynamicStyles.textContent = `:root { --first-hue: ${hue}; --hero-bg: ${heroBg}; }`;
+  }
   
   const colorNames = [
     {h: 30, n: 'Crimson Peak'}, {h: 60, n: 'Solar Flare'}, {h: 90, n: 'Electric Lime'},
@@ -175,20 +178,20 @@ window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
   const progress = document.querySelector('.preloader-progress');
   
-  if (preloader && progress) {
-    // Animate progress bar
-    setTimeout(() => {
-      progress.style.width = '100%';
-    }, 100);
+   if (preloader && progress) {
+     // Animate progress bar
+     setTimeout(() => {
+       progress.classList.add('full');
+     }, 100);
 
-    // Remove preloader and start animations faster
-    setTimeout(() => {
-      preloader.classList.add('loaded');
-      initGSAP();
-    }, 400);
-  } else {
-    initGSAP();
-  }
+     // Remove preloader and start animations faster
+     setTimeout(() => {
+       preloader.classList.add('loaded');
+       initGSAP();
+     }, 400);
+   } else {
+     initGSAP();
+   }
 });
 
 function initGSAP() {
